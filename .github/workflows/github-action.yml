@@ -39,11 +39,11 @@ jobs:
       #     docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
       #     docker tag andes2020/ubuntu:latest andes2019/ubuntu:latest
       #     docker push andes2019/ubuntu:latest
-      
+
       - name: Push to Docker Hub
         uses: docker/build-push-action@v1
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
+          username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: andeslam2019/ubuntu
           tag_with_ref: true
