@@ -1,5 +1,5 @@
 ---
-name: Github Action custom-docker-image Test
+name: custom-docker-image-github-action
 on:
   push:
     branches:

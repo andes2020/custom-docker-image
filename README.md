@@ -1,6 +1,8 @@
 # custom-docker-image
 Custom docker image integrate with docker, kubectl, aws and minikube configured for testing
 
+![custom-docker-image-github-action](https://github.com/andes2020/custom-docker-image/workflows/custom-docker-image-github-action/badge.svg)
+
 Best practices to make a Dockerfile
 https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
 
