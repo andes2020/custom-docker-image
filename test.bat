@@ -12,3 +12,16 @@ cleanUpLocalImage() {
   [ "$status" -eq 0 ]
   [ "$output" == "hello-world" ]
 }
+
+@test "Ensure python is installed successfully" {
+  run docker run \
+      andes2020/ubuntu:latest /bin/bash <<-EOF
+        python --version
+EOF
+
+  echo "status = ${status}"
+  echo "output = ${output}"
+
+  [ "$status" -eq 0 ]
+  [ "$output" == "python 3" ]
+}
