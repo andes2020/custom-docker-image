@@ -25,4 +25,14 @@ RUN sudo apt-get update && sudo apt-get install -y apt-transport-https gnupg2 cu
     echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list && \
     sudo apt-get update && \
     sudo apt-get install -y kubectl
+
+# AWS CLI
+RUN sudo apt-get update && sudo apt-get install -y unzip glibc-source groff less &&\
+    curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" &&\
+    unzip awscliv2.zip &&\
+    sudo ./aws/install
+
+# Clean up aws download
+RUN rm -rf ./aws/ && \
+    rm -rf ./awscliv2.zip
 # ENTRYPOINT [ "/bin/bash" ]

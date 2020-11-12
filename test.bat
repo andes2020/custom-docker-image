@@ -39,3 +39,15 @@ EOF
   [ $(echo $output | grep "Client Version: version.Info{Major" | wc -l) -eq 1 ]
 }
 
+@test "Ensure aws cli is installed successfully" {
+  run docker run -i \
+      andes2020/ubuntu:latest /bin/bash <<-EOF
+        aws --version
+EOF
+
+  echo "status = ${status}"
+  echo "output = ${output}"
+
+  [ "$status" -eq 0 ]
+  [ $(echo $output | grep "aws-cli/" | wc -l) -eq 1 ]
+}
