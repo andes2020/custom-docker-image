@@ -51,3 +51,16 @@ EOF
   [ "$status" -eq 0 ]
   [ $(echo $output | grep "aws-cli/" | wc -l) -eq 1 ]
 }
+
+@test "Ensure docker is installed successfully" {
+  run docker run -i \
+      andes2020/ubuntu:latest /bin/bash <<-EOF
+        docker --version
+EOF
+
+  echo "status = ${status}"
+  echo "output = ${output}"
+
+  [ "$status" -eq 0 ]
+  [ $(echo $output | grep "Docker version" | wc -l) -eq 1 ]
+}

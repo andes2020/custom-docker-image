@@ -35,4 +35,18 @@ RUN sudo apt-get update && sudo apt-get install -y unzip glibc-source groff less
 # Clean up aws download
 RUN rm -rf ./aws/ && \
     rm -rf ./awscliv2.zip
+
+# Docker
+RUN sudo apt-get install -qqy \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
+    software-properties-common \
+    lsb-release &&\
+    curl -fsSL "https://download.docker.com/linux/ubuntu/gpg" | sudo apt-key add - &&\
+    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" &&\
+    sudo apt-get update &&\
+    sudo apt-get install -qqy docker-ce docker-ce-cli containerd.io
+
 # ENTRYPOINT [ "/bin/bash" ]
