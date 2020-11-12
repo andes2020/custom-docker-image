@@ -22,5 +22,5 @@ jobs:
       - name: Build the Docker image
         run: docker build -t andes2020/ubuntu:latest .
 
-     - name: Run bat tests
-        run: bats test.bat
+      - name: Run bat tests
+          run: bats test.bat
