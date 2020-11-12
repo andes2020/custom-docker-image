@@ -25,3 +25,17 @@ EOF
   [ "$status" -eq 0 ]
   [ "$output" == "Python 3.6.9" ]
 }
+
+@test "Ensure kubectl client is installed successfully" {
+  run docker run -i \
+      andes2020/ubuntu:latest /bin/bash <<-EOF
+        kubectl version --client=true
+EOF
+
+  echo "status = ${status}"
+  echo "output = ${output}"
+
+  [ "$status" -eq 0 ]
+  [ $(echo $output | grep "Client Version: version.Info{Major" | wc -l) -eq 1 ]
+}
+

@@ -7,7 +7,9 @@ RUN apt-get update -qq && \
         python3-pip \
         python3-setuptools \
         python3-dev \
-        gcc && \
+        gcc \
+# Need sudo for installing k8s
+        sudo && \
     ln -sf /usr/bin/pip3 /usr/local/bin/pip && \
     ln -sf /usr/bin/python3 /usr/local/bin/python && \
     pip install wheel && \
@@ -17,4 +19,10 @@ RUN apt-get update -qq && \
     apt-get clean -y && \
     rm -rf /root/.cache/pip
 
+# K8s 
+RUN sudo apt-get update && sudo apt-get install -y apt-transport-https gnupg2 curl && \
+    curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add - && \
+    echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list && \
+    sudo apt-get update && \
+    sudo apt-get install -y kubectl
 # ENTRYPOINT [ "/bin/bash" ]
