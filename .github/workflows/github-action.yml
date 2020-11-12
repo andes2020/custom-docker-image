@@ -31,5 +31,5 @@ jobs:
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         run: |
           docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-          docker tag andes2019/ubuntu:latest andes2020/ubuntu:latest
+          docker tag andes2020/ubuntu:latest andes2019/ubuntu:latest
           docker push andes2019/ubuntu:latest
