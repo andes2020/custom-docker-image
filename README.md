@@ -21,3 +21,8 @@ $ sudo sh ./install_bats.sh
 ```bash
 bats test.bat
 ```
+
+# Get into container locally
+```bash
+docker run -it --entrypoint /bin/bash andes2020/ubuntu:latest
+```

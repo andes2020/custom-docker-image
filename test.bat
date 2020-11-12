@@ -14,7 +14,7 @@ cleanUpLocalImage() {
 }
 
 @test "Ensure python is installed successfully" {
-  run docker run \
+  run docker run -i \
       andes2020/ubuntu:latest /bin/bash <<-EOF
         python --version
 EOF
@@ -23,5 +23,18 @@ EOF
   echo "output = ${output}"
 
   [ "$status" -eq 0 ]
-  [ "$output" == "python 3" ]
+  [ "$output" == "Python 3.6.9" ]
+}
+
+@test "Ensure python is installed successfully" {
+  run docker run -i \
+      andes2020/ubuntu:latest /bin/bash <<-EOF
+        python --version
+EOF
+
+  echo "status = ${status}"
+  echo "output = ${output}"
+
+  [ "$status" -eq 0 ]
+  [ "$output" == "Python 3.6.9" ]
 }
