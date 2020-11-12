@@ -13,10 +13,7 @@ https://github.com/bats-core/bats-core
 ```bash
 $ sudo sh ./install_bats.sh
 ```
-
-2.
-
-
+2. Write new stuff on Dockerfile and add unit test!
 
 # Run tests
 ```bash

@@ -1,0 +1,27 @@
+---
+- name: Github Action custom-docker-image Test
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  shedule:
+    - cron: '0 6 * * *'
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: >
+          pwd
+
+      - name: Build the Docker image
+        run: docker build -t andes2020/ubuntu:latest .
+
+      # - name: Run bat tests
+      #   run:
